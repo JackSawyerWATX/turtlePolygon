@@ -1,7 +1,6 @@
 import turtle
 from itertools import cycle
 
-# set up screen with black background
 screen = turtle.Screen()
 screen.bgcolor('black')
 
@@ -9,13 +8,12 @@ t = turtle.Turtle()
 t.speed('fastest')
 t.width(2)
 
-# brighter colors will show up on black; cycle through them safely
 colors = ["red", "green", "blue"]
 
 
 def draw_shape(turtle_obj, steps, length, turn_angle=None):
-    """Draw a closed shape made of `steps` segments.
-
+    """
+    Draws a closed shape made of `steps` segments.
     - steps: number of line segments to draw (e.g. 5 for a pentagon/star pattern)
     - length: forward distance for each segment
     - turn_angle: degrees to turn after each segment. If None, uses regular polygon exterior angle (360/steps).
@@ -31,10 +29,10 @@ def draw_shape(turtle_obj, steps, length, turn_angle=None):
 
 
 def draw_repeats(turtle_obj, steps, length, turn_angle, repeats, rotate_between):
-    """Draw the same shape `repeats` times, rotating the turtle by `rotate_between` degrees between each draw.
 
-    This lets you control how much the turtle turns before drawing the next polygon of the same color.
-    """
+    # Draw the same shape `repeats` times, rotating the turtle by `rotate_between` degrees between each draw.
+    # controls how much the turtle turns before drawing the next polygon of the same color.
+    
     for _ in range(repeats):
         draw_shape(turtle_obj, steps, length, turn_angle)
         turtle_obj.right(rotate_between)
